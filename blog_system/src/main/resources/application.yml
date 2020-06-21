@@ -1,0 +1,33 @@
+server:
+  port: 80
+spring:
+  profiles:
+    # \u5916\u7F6Ejdbc\u3001redis\u548Cmail\u914D\u7F6E\u6587\u4EF6
+    active: jdbc,redis,mail
+  # \u5173\u95EDthymeleaf\u9875\u9762\u7F13\u5B58
+  thymeleaf:
+    cache: false
+  # \u914D\u7F6E\u56FD\u9645\u5316\u8D44\u6E90\u6587\u4EF6
+  messages:
+    basename: i18n.logo
+
+# MyBatis\u914D\u7F6E
+mybatis:
+  configuration:
+    #\u5F00\u542F\u9A7C\u5CF0\u547D\u540D\u5339\u914D\u6620\u5C04
+    map-underscore-to-camel-case: true
+  #\u914D\u7F6EMyBatis\u7684xml\u6620\u5C04\u6587\u4EF6\u8DEF\u5F84
+  mapper-locations: classpath:mapper/*.xml
+  #\u914D\u7F6EXML\u6620\u5C04\u6587\u4EF6\u4E2D\u6307\u5B9A\u7684\u5B9E\u4F53\u7C7B\u522B\u540D\u8DEF\u5F84
+  type-aliases-package: com.itheima.model.domain
+
+#pagehelper\u5206\u9875\u8BBE\u7F6E
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+#\u6D4F\u89C8\u5668cookie\u76F8\u5173\u8BBE\u7F6E
+COOKIE:
+  # \u8BBE\u7F6Ecookie\u9ED8\u8BA4\u65F6\u957F\u4E3A30\u5206\u949F
+  VALIDITY: 1800
